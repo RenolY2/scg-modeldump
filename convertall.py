@@ -25,17 +25,20 @@ def find_all_textures(folderpath):
     
     return textures
 
-from shutil import copyfile
+from shutil import copyfile, SameFileError
 
 mat2texture = {}
 textures = find_all_textures(".")
 print("found all textures")
 matpath = "./Materials/"
-
+os.makedirs("./converted_models/textures/", exist_ok=True)
 for tex in textures:
     path = textures[tex]
     basename = os.path.basename(path)
-    copyfile(path, os.path.join("./converted_models/textures", basename))
+    try:
+        copyfile(path, os.path.join("./converted_models/textures", basename))
+    except SameFileError:
+        pass
     textures[tex] = os.path.join("./textures", basename)
 
 
@@ -68,6 +71,7 @@ for file in os.listdir(matpath):
 #import json 
 #with open("materials.json", "w") as f:
 #    json.dump(mat2texture, f, indent=4)
+
 for file in os.listdir(folder):
     #if True:
     #folder = "D:/StarCraftGhost/StarCraft Ghost Xbox Finn Hillbilly/3D/Models"
