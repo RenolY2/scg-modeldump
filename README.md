@@ -2,7 +2,7 @@
 Tool that dumps the .nod model files of Starcraft Ghost into .obj format.
 
 # Download
-Download this tool by clicking on the "Clone or download" button.
+Download this tool by clicking on the green Code button and click Download Zip.
 
 # How to use
 You need to install a recent version of Python 3 (e.g. 3.8 or newer). When installing, make sure you click on "Add Python to PATH" at the start of the installer. 
